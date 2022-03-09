@@ -21,7 +21,7 @@ describe('Queries de seleção', () => {
     importer.disconnect();
 
     sequelize = new Sequelize('SpotifyClone', process.env.MYSQL_USER, process.env.MYSQL_PASSWORD, {host:process.env.HOSTNAME, port: process.env.PORT, dialect: 'mysql'})
-  });
+  }, 30000);
 
   afterAll(async () => {
     await sequelize.query('DROP DATABASE SpotifyClone;', { type: 'RAW' });

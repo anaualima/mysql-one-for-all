@@ -22,7 +22,7 @@ CREATE TABLE SpotifyClone.artistas(
 	artista VARCHAR(50) NOT NULL
 ) engine = InnoDB;
 
-CREATE TABLE SpotifyClone.albums(
+CREATE TABLE SpotifyClone.albuns(
 	album_id INT PRIMARY KEY AUTO_INCREMENT,
 	album VARCHAR(50) NOT NULL,
   ano_de_lancamento INT NOT NULL,
@@ -35,10 +35,10 @@ CREATE TABLE SpotifyClone.musicas(
   musica VARCHAR(100) NOT NULL,
   duracao_segundos INT NOT NULL,
 	album_id INT,
-	FOREIGN KEY (album_id) REFERENCES albums(album_id)
+	FOREIGN KEY (album_id) REFERENCES albuns(album_id)
 ) engine = InnoDB;
 
-CREATE TABLE SpotifyClone.historico_reproducoes(
+CREATE TABLE SpotifyClone.historicoReproducoes(
   data_reproducao DATETIME NOT NULL,
   musica_id INT,
   CONSTRAINT PRIMARY KEY (usuario_id, musica_id ),
@@ -47,7 +47,7 @@ CREATE TABLE SpotifyClone.historico_reproducoes(
   FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id)
 ) engine = InnoDB;
 
-CREATE TABLE SpotifyClone.seguidores_artistas(
+CREATE TABLE SpotifyClone.seguidoresArtistas(
   CONSTRAINT PRIMARY KEY (usuario_id, artista_id),
   artista_id INT,
   FOREIGN KEY (artista_id) REFERENCES artistas(artista_id),
@@ -89,7 +89,7 @@ VALUES
   ('Tyler Isle'),
   ('Fog');
   
-INSERT INTO SpotifyClone.albums(album, ano_de_lancamento, artista_id)
+INSERT INTO SpotifyClone.albuns(album, ano_de_lancamento, artista_id)
 VALUES
 	('Envious', 1990, 1),
   ('Exuberant', 1996, 1),
@@ -145,7 +145,7 @@ VALUES
   ('Baby', 136, 6),
   ('You Make Me Feel So..', 83, 6);
   
-INSERT INTO SpotifyClone.historico_reproducoes(
+INSERT INTO SpotifyClone.historicoReproducoes(
   data_reproducao,
   musica_id,
   usuario_id
@@ -190,7 +190,7 @@ VALUES
   ('2017-07-27 05:24:49', 12, 10),
   ('2017-12-25 01:03:57', 13, 10);
   
-  INSERT INTO SpotifyClone.seguidores_artistas(
+  INSERT INTO SpotifyClone.seguidoresArtistas(
   artista_id,
   usuario_id
 )
