@@ -1,4 +1,4 @@
-SELECT M.musica AS 'cancoes',
+SELECT M.musica AS 'cancao',
 COUNT(DISTINCT H.usuario_id) AS 'reproducoes'
 FROM SpotifyClone.musicas AS M
 INNER JOIN SpotifyClone.historicoReproducoes AS H
